@@ -1,0 +1,1 @@
+# namaste-config-repo

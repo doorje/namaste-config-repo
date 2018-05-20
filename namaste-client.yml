@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: namaste-client
+  session:
+    store-type: jdbc
+  datasource:
+    url: jdbc:${vcap.services.namaste-db-service.credentials.uri}
+    driver-class-name: com.mysql.jdbc.Driver
+  security:
+    oauth2:
+      client:
+        registration:
+          namaste:
+            client-id: ${vcap.services.namaste-uaa-service.credentials.client-id}
+            client-secret: ${vcap.services.namaste-uaa-service.credentials.client-secret}
+            scope: read
+            authorization-grant-type: authorization_code
+            redirect-uri-template: ${vcap.services.namaste-uaa-service.credentials.redirect-uri}/login/oauth2/code/namaste
+            client-name: namaste
+        provider:
+          namaste:
+            authorization-uri: ${vcap.services.namaste-uaa-service.credentials.uri}/oauth/authorize
+            token-uri: ${vcap.services.namaste-uaa-service.credentials.uri}/oauth/token
+            user-info-uri: ${vcap.services.namaste-uaa-service.credentials.uri}/me
+            user-name-attribute: name
+
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    non-secure-port: 80
+    leaseRenewalIntervalInSeconds: 10
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+    defaultZone: ${vcap.services.namaste-discovery-service.credentials.uri}/eureka/

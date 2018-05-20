@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: namaste-user-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  datasource:
+    url: jdbc:${vcap.services.namaste-db-service.credentials.uri}
+    driver-class-name: com.mysql.jdbc.Driver
+
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]}
+    non-secure-port: 80
+    leaseRenewalIntervalInSeconds: 10
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+    defaultZone: ${vcap.services.namaste-discovery-service.credentials.uri}/eureka/

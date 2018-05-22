@@ -21,4 +21,4 @@ eureka:
   client:
     registryFetchIntervalSeconds: 5
     serviceUrl:
-    defaultZone: ${vcap.services.namaste-discovery-service.credentials.uri}/eureka/
+      defaultZone: ${vcap.services.namaste-discovery-service.credentials.uri}/eureka/

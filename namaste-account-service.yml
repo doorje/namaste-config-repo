@@ -1,6 +1,6 @@
 spring:
   application:
-    name: namaste-edge
+    name: namaste-account-service
   jpa:
     hibernate:
       ddl-auto: update
@@ -22,13 +22,3 @@ eureka:
     registryFetchIntervalSeconds: 5
     serviceUrl:
       defaultZone: ${vcap.services.namaste-discovery-service.credentials.uri}/eureka/
-
-zuul:
-  sensitiveHeaders:
-  routes:
-    api:
-      path: /user/**
-      service-id: namaste-user-service
-    account:
-      path: /account/**
-      service-id: namaste-account-service

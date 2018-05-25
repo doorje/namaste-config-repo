@@ -6,8 +6,8 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect:
-          storage-engine: innodb
+        dialect: org.hibernate.dialect.MySQL57Dialect
+
   datasource:
     url: jdbc:${vcap.services.namaste-db-service.credentials.uri}
     driver-class-name: com.mysql.jdbc.Driver

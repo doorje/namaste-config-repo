@@ -6,7 +6,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL55Dialect
+        dialect: org.hibernate.dialect.MySQL57Dialect
   datasource:
     url: jdbc:${vcap.services.namaste-db-service.credentials.uri}
     driver-class-name: com.mysql.jdbc.Driver
@@ -26,9 +26,6 @@ eureka:
 zuul:
   sensitiveHeaders:
   routes:
-    api:
-      path: /user/**
-      service-id: namaste-user-service
     account:
       path: /account/**
       service-id: namaste-account-service

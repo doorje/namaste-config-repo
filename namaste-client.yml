@@ -36,10 +36,6 @@ eureka:
     serviceUrl:
       defaultZone: ${vcap.services.namaste-discovery-service.credentials.uri}/eureka/
 
-feign:
-  client:
-    config:
-      default:
-        connectTimeout: 10000
-        readTimeout: 10000
-        loggerLevel: full
+logging:
+  level:
+    com.mahen.doorje.namaste.client.api.namaste.NamasteClient: DEBUG

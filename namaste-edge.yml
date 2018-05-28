@@ -36,3 +36,7 @@ hystrix:
       execution:
         timeout:
           enabled: false
+
+ribbon:
+  SocketTimeout: 6000
+  ReadTimeout: 6000

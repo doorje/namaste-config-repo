@@ -38,5 +38,5 @@ hystrix:
           enabled: false
 
 ribbon:
-  SocketTimeout: 6000
-  ReadTimeout: 6000
+  SocketTimeout: 10000
+  ReadTimeout: 10000

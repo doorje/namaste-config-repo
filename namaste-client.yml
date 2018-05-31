@@ -47,13 +47,3 @@ feign:
 logging:
   level:
     com.mahen.doorje.namaste.client.api.namaste.NamasteClient: DEBUG
-
-
-label:
-  account:
-    email: Email
-    password: Password
-    conformPass: Confirm Password
-
-PasswordMatches:
-  account: Password does not match!
